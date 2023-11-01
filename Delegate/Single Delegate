@@ -1,0 +1,20 @@
+using System;
+namespace ConsoleApp3
+{
+    public delegate void Calculation(int a,int b);
+    public class Program
+    {
+        public static void Addition(int a,int b)
+        {
+            Console.WriteLine("Inside Addition");
+            Console.WriteLine(a + b);
+        }
+        static void Main(string[] args)
+        {
+            Calculation cal = Program.Addition;
+            //Calculation cal=new Calculation(Program.Addition); //Another way to create Delegate
+            cal.Invoke(10, 20);
+            cal(20, 30);
+        }
+    }
+}
